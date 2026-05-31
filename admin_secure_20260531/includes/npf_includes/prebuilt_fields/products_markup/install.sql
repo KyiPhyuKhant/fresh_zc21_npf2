@@ -1,0 +1,1 @@
+ALTER TABLE `products` ADD `products_markup` FLOAT NOT NULL DEFAULT 0 AFTER `products_price`;

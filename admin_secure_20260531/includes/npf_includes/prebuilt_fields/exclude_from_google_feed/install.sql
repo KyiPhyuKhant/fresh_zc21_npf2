@@ -1,0 +1,1 @@
+ALTER TABLE products ADD exclude_from_google_feed tinyint(1) NOT NULL DEFAULT 0;

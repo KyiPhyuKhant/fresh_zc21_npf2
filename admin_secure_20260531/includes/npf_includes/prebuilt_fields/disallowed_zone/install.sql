@@ -1,0 +1,1 @@
+ALTER TABLE products ADD disallowed_zone int(11) NOT NULL DEFAULT 0;

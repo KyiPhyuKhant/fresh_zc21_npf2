@@ -78,6 +78,16 @@ require($template->get_template_dir('/tpl_products_next_previous.php',DIR_WS_TEM
   <?php echo (($flag_show_product_info_weight == 1 and $products_weight !=0) ? '<li>' . TEXT_PRODUCT_WEIGHT .  $products_weight . TEXT_PRODUCT_WEIGHT_UNIT . '</li>'  : '') . "\n"; ?>
   <?php echo (($flag_show_product_info_quantity == 1) ? '<li>' . $products_quantity . TEXT_PRODUCT_QUANTITY . '</li>'  : '') . "\n"; ?>
   <?php echo (($flag_show_product_info_manufacturer == 1 and !empty($manufacturers_name)) ? '<li>' . TEXT_PRODUCT_MANUFACTURER . $manufacturers_name . '</li>' : '') . "\n"; ?>
+  <!-- BEGIN NPF MODIFICATIONS -->
+  <?php
+    if(count($numinix_fields_display ) > 0) { ?>
+  <?php foreach ($numinix_fields_display as $field => $value) {
+      $field_name = ucwords(str_replace('_', ' ', $field));
+  ?>
+      <li><?php echo $field_name . ': ' . $value; ?></li>      
+    <?php } ?>
+  <?php } ?>
+  <!-- END NPF MODIFICATIONS -->
 </ul>
 <?php
   }
@@ -188,6 +198,14 @@ if (CUSTOMERS_APPROVAL == 3 and TEXT_LOGIN_FOR_PRICE_BUTTON_REPLACE_SHOWROOM == 
 <?php } ?>
 <!--eof Product description -->
 
+<!-- bof NPF Video product fields -->
+  <?php if (!empty($GLOBALS['npf_product_extra_html'])): ?>
+  <div class="npf-product-video-fields">
+      <?php echo $GLOBALS['npf_product_extra_html']; ?>
+  </div>
+  <?php endif; ?>
+<!-- eof NPF Video product fields -->
+    
 <!--bof Prev/Next bottom position -->
 <?php if (PRODUCT_INFO_PREVIOUS_NEXT == 2 or PRODUCT_INFO_PREVIOUS_NEXT == 3) { ?>
 <?php

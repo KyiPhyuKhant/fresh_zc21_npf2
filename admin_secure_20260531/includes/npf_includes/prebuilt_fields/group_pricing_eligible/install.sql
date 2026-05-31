@@ -1,0 +1,1 @@
+ALTER TABLE products ADD group_pricing_eligible tinyint(1) NOT NULL DEFAULT 1;
